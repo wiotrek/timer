@@ -1,0 +1,7 @@
+section {
+    display: flex;
+    justify-content: center;
+}
+h1, button {
+    font-size: 4em;
+}
