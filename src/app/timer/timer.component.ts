@@ -11,6 +11,7 @@ export class TimerComponent {
   private running = false;
   private stopwatch = new Stopwatch();
   private interval: any;
+
   onClick(): void {
     if (!this.running) {
       this.stopwatch.start();
