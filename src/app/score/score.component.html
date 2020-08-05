@@ -1,13 +1,15 @@
 <main>
     <h1 *ngIf='!showTimes'>Brak wyników</h1>
     <section *ngIf='showTimes'>
-        <article *ngFor='let item of allTimes; index as i'>
+        <article *ngFor='let item of allTimes | slice:0:12; index as i;'>
             <p>{{i+1}}.</p>
             <p>{{this.stopwatch.timer(item)}}</p>
             <p><button (click)='delElementScore(i)'>Usuń</button></p>
         </article>
         <article>
-            <button>Prześlij wyniki</button>
+            <button>Poprzednia Strona</button>
+            <button>Wyślij wyniki</button>
+            <button>Następna Strona</button>
         </article>
     </section>
 </main>

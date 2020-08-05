@@ -9,6 +9,7 @@ article {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    font-size: 0.8em;
 }
 article:first-child {
     border-top: 1px solid white;
