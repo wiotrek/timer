@@ -25,7 +25,7 @@ export class TimerComponent{
     } else {
       clearInterval(this.interval);
       this.time = this.stopwatch.stop();
-      this.ts.allTimes.push(this.stopwatch.elapsedTime);
+      this.ts.allTimes.unshift(this.stopwatch.elapsedTime);
       this.running = false;
     }
   }

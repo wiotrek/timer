@@ -1,9 +1,17 @@
 main {
     margin: 2% 10%;
 }
-
+main h1 {
+    text-align: center;
+}
 article {
-    background-color: green;
-    font-size: 1.5em;
-    width: 100%;
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: space-evenly;
+}
+article:first-child {
+    border-top: 1px solid white;
+}
+button {
+    cursor: pointer;
 }
