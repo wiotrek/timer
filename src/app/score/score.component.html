@@ -1,0 +1,13 @@
+<main>
+    <section>
+        <table>
+            <article *ngFor='let item of allTimes; index as i'>
+                <tr>
+                    <td>{{i+1}}</td>
+                    <td>{{this.stopwatch.timer(item)}}</td>
+                </tr>
+            </article>
+        </table>
+        
+    </section>
+</main>

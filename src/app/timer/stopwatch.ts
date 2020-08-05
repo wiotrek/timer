@@ -1,20 +1,21 @@
 export class Stopwatch {
     private startTime: number;
+    public elapsedTime: number;
 
     start(): void {
         this.startTime = performance.now();
     }
-    stop(): number{
+    stop(): string{
         const elapsedTime = this.display();
         return elapsedTime;
     }
 
     display(): any {
-        const elapsedTime = performance.now() - this.startTime;
-        return this.timer(elapsedTime);
+        this.elapsedTime = performance.now() - this.startTime;
+        return this.timer(this.elapsedTime);
     }
 
-    timer(time: number): any {
+    timer(time: number): string {
         time = Math.floor(time / 10);
         const timerArr = [0, 0, 0];
 
