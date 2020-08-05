@@ -16,33 +16,22 @@ export class Stopwatch {
         // return elapsedTime;
     }
 
-    format(time: number): string {
+    format(time: number): any {
         if (time < 100) {
-            let timeStr: any = '00:00:' + time;
-            return timeStr;
+            return `00:00:${time}`;
         } else {
-            const timeArrStr: any = time.toString().split('');
-        
             if (time < 6000) {
-    
+                const timeArr = time.toString().split('');
+                let arr: any;
+                arr[0] = timeArr[0];
+                arr[1] = timeArr[1];
+                arr[2] = ':';
+                arr[3] = timeArr[3];
+                arr[4] = timeArr[4];
+                return `00:${arr.join(',')}`;
             }
         }
-        
 
-
-        alert('dupa');
-        let isEven: any = time % 2 ;
-        isEven = isEven ? true : false;
-
-        
-
-        let amountPair = 0;
-        
-        // if (isEven) {
-        //     // how much is pair
-        //     amountPair = timeArrStr.length / 2;
-        // }
-        
     }
 
 }
