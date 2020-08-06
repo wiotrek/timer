@@ -9,7 +9,7 @@ import { ServiceService } from '../service.service';
 })
 export class TimerComponent{
   constructor(private ts: ServiceService) {}
-  time = '00 : 00 : 00';
+  public time = '00 : 00 : 00';
   private running = false;
   private stopwatch = new Stopwatch();
   private interval: any;

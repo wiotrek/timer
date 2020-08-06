@@ -4,6 +4,19 @@ main {
 main h1 {
     text-align: center;
 }
+div.container {
+    display: grid;
+    grid-template-columns: 5px 300px auto 5px;
+    grid-template-rows: auto;
+}
+section.item-a {
+    grid-column: 2;
+    grid-row: auto;
+}
+section.item-b {
+    grid-column: 3;
+    grid-row: auto;
+}
 article {
     border-top: 1px solid black;
     display: flex;
@@ -14,10 +27,16 @@ article {
 article:first-child {
     border-top: 1px solid white;
 }
+article button {
+    margin: 5% 0;
+}
 button {
     cursor: pointer;
     align-self: center;
 }
-article button {
-    margin: 5% 0;
+section.item-a article {
+    border: 0;
+    font-size: 1em;
 }
+
+

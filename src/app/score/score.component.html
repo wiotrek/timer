@@ -1,15 +1,41 @@
 <main>
     <h1 *ngIf='!showTimes'>Brak wyników</h1>
-    <section *ngIf='showTimes'>
-        <article *ngFor='let item of allTimes | slice:0:12; index as i;'>
-            <p>{{i+1}}.</p>
-            <p>{{this.stopwatch.timer(item)}}</p>
-            <p><button (click)='delElementScore(i)'>Usuń</button></p>
-        </article>
-        <article>
-            <button>Poprzednia Strona</button>
-            <button>Wyślij wyniki</button>
-            <button>Następna Strona</button>
-        </article>
-    </section>
+    <div *ngIf='showTimes' class="container">
+        <section class='item-a'>
+            <article>
+                <p>Najlepszy: </p>
+                <p>{{this.stopwatch.timer(bestScore())}}</p>
+            </article>
+            <article>
+                <p>Najgorszy:</p>
+                <p>{{this.stopwatch.timer(worstScore())}}</p>
+            </article>
+            <article>
+                <p></p>
+                <p></p>
+            </article>
+            <article>
+                <p></p>
+                <p></p>
+            </article>
+            <article>
+                <p></p>
+                <p></p>
+            </article>
+        </section>
+        <section class='item-b'>
+            <article *ngFor='let item of allTimes | slice:amountElementsOfSide:amountElementsOfSide+10
+            ; index as i;'>
+                <p>{{i+1+amountElementsOfSide}}.</p>
+                <p>{{this.stopwatch.timer(item)}}</p>
+                <p><button (click)='delElementScore(i)'>Usuń</button></p>
+            </article>
+            <article>
+                <button *ngIf='allTimes.length > 10' (click)='amountElementsOfSide = amountElementsOfSide - 10'>Poprzednia Strona</button>
+                <button>Wyślij wyniki</button>
+                <button (click)='amountElementsOfSide = amountElementsOfSide + 10'>Następna Strona</button>
+            </article>
+        </section>
+    </div>
+    
 </main>
