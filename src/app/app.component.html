@@ -1,12 +1,10 @@
 <div>
   <nav>
-    <ul>
-      <li routerLink='score'>Czasy</li>
-      <li routerLink='timer'>{{title}}</li>
-      <li>Zaloguj się</li>
-    </ul>
+    <a routerLinkActive="active" routerLink='score'>{{leftTitle}}</a>
+    <a routerLinkActive="active" routerLink='' 
+    [routerLinkActiveOptions]="{exact: true}">{{middleTitle}}</a>
+    <a routerLinkActive="active" routerLink='#'>{{rightTitle}}</a>
   </nav>
-
   <router-outlet></router-outlet>
 
 </div>
