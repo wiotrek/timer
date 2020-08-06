@@ -12,26 +12,39 @@ export class ScoreComponent {
     private ts: ServiceService,
   ) {
     console.log(this.ts.allTimes);
-    console.log(this.sortTimes);
   }
   private allTimes = this.ts.allTimes;
   public showTimes = this.allTimes.length === 0 ? false : true;
   public amountElementsOfSide = 0;
-  protected sortTimes = this.ts.allTimes;
 
   delElementScore = (element: number) => {
     this.ts.allTimes.splice(element, 1);
   }
-  bestScore(): number {
-    let bestArr: any;
-    bestArr  = this.sortTimes.sort((a, b) => a - b);
-    let best = Number(bestArr[0]);
-    return best;
+  bestScore(): string {
+    // copy values array allTimes without references
+    let sortTimes = this.allTimes.slice();
+    sortTimes  = sortTimes.sort((a, b) => a - b);
+    const best = Number(sortTimes[0]);
+    return this.stopwatch.timer(best);
   }
-  worstScore(): number {
-    let worstArr: any;
-    worstArr  = this.sortTimes.sort((a, b) => a - b);
-    let best = Number(worstArr[worstArr.length - 1]);
-    return best;
+  worstScore(): string {
+    let sortTimes = this.allTimes.slice();
+    sortTimes  = sortTimes.sort((a, b) => a - b);
+    const worst = Number(sortTimes[sortTimes.length - 1]);
+    return this.stopwatch.timer(worst);
+  }
+  avgScore(): string {
+    const sortTimes = this.allTimes.slice();
+    const reducer = (accumulator: number, currentValue: number) => accumulator + currentValue;
+    let score = sortTimes.reduce(reducer);
+    score = score / sortTimes.length;
+    return this.stopwatch.timer(score);
+  }
+  avg12Score(): string {
+    const sortTimes = this.allTimes.slice(0, 12);
+    const reducer = (accumulator: number, currentValue: number) => accumulator + currentValue;
+    let score = sortTimes.reduce(reducer);
+    score = score / sortTimes.length;
+    return this.stopwatch.timer(score);
   }
 }

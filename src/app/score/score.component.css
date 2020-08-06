@@ -41,5 +41,7 @@ section.item-a article {
     border: 0;
     font-size: 1em;
 }
-
+section.item-b article {
+    margin: 0 10%;
+}
 
