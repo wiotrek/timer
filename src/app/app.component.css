@@ -1,11 +1,11 @@
 @media(min-width: 0) {
-    nav {
+    .app-nav {
         background-color: grey;
         padding: 2%;
         display: flex;
         justify-content:space-between;
     }
-    a {
+    .app-a {
         color: black;
         width: 80px;
         padding: 4% 0;
@@ -17,22 +17,22 @@
         transition: background-color 1s;
         text-align: center;
     }
-    a:visited {
+    .app-a:visited {
         color: unset;
     }
-    a:hover {
+    .app-a:hover {
         background-color: yellow;
         border: 3px solid black;
     }
-    a.active {
+    .app-a.active {
         background-color: yellow;
     }
 }
 @media(min-width: 500px) {
-    nav {
+    .app-nav {
         justify-content: space-evenly;
     }
-    a {
+    .app-a {
         padding: 5px 0;
         width: 150px;  
     }

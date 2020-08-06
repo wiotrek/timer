@@ -1,9 +1,9 @@
 <div>
-  <nav>
-    <a routerLinkActive="active" routerLink='score'>{{leftTitle}}</a>
-    <a routerLinkActive="active" routerLink='' 
+  <nav class='app-nav'>
+    <a class='app-a' routerLinkActive="active" routerLink='score'>{{leftTitle}}</a>
+    <a class='app-a' routerLinkActive="active" routerLink='' 
     [routerLinkActiveOptions]="{exact: true}">{{middleTitle}}</a>
-    <a routerLinkActive="active" routerLink='#'>{{rightTitle}}</a>
+    <a class='app-a' routerLinkActive="active" routerLink='#'>{{rightTitle}}</a>
   </nav>
   <router-outlet></router-outlet>
 
