@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { Stopwatch } from '../timer/stopwatch';
-import { findLast } from '@angular/compiler/src/directive_resolver';
 @Component({
   selector: 'app-score',
   templateUrl: './score.component.html',
@@ -13,24 +12,26 @@ export class ScoreComponent {
     private ts: ServiceService,
   ) {
     console.log(this.ts.allTimes);
+    console.log(this.sortTimes);
   }
-
-  public allTimes = this.ts.allTimes;
+  private allTimes = this.ts.allTimes;
   public showTimes = this.allTimes.length === 0 ? false : true;
   public amountElementsOfSide = 0;
+  protected sortTimes = this.ts.allTimes;
 
   delElementScore = (element: number) => {
     this.ts.allTimes.splice(element, 1);
   }
-
   bestScore(): number {
-    const bestArr = this.ts.allTimes.sort((a, b) => a - b);
-    const best = Number(bestArr[0]);
+    let bestArr: any;
+    bestArr  = this.sortTimes.sort((a, b) => a - b);
+    let best = Number(bestArr[0]);
     return best;
   }
   worstScore(): number {
-    const worstArr = this.ts.allTimes.sort((a, b) => a - b);
-    const worst = worstArr[worstArr.length - 1];
-    return worst;
+    let worstArr: any;
+    worstArr  = this.sortTimes.sort((a, b) => a - b);
+    let best = Number(worstArr[worstArr.length - 1]);
+    return best;
   }
 }

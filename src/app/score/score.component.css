@@ -27,6 +27,9 @@ article {
 article:first-child {
     border-top: 1px solid white;
 }
+article:last-child {
+    border-top: 1px solid white;
+}
 article button {
     margin: 5% 0;
 }
