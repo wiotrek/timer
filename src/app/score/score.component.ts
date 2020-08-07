@@ -18,7 +18,9 @@ export class ScoreComponent {
   public amountElementsOfSide = 0;
 
   delElementScore = (element: number) => {
-    this.ts.allTimes.splice(element, 1);
+    if (this.ts.allTimes.length > 1) {
+      this.ts.allTimes.splice(element, 1);
+    }
   }
   bestScore(): string {
     // copy values array allTimes without references

@@ -1,41 +1,39 @@
-<main>
-    <h1 *ngIf='!showTimes'>Brak wyników</h1>
-    <div *ngIf='showTimes' class="container">
-        <section class='item-a'>
-            <article>
-                <p>Najlepszy: </p>
-                <p>{{bestScore()}}</p>
-            </article>
-            <article>
-                <p>Najgorszy:</p>
-                <p>{{worstScore()}}</p>
-            </article>
-            <article>
-                <p>Średnia:</p>
-                <p>{{avgScore()}}</p>
-            </article>
-            <article>
-                <p>Średnia z 12</p>
-                <p>{{avg12Score()}}</p>
-            </article>
-            <article>
-                <p></p>
-                <p></p>
-            </article>
-        </section>
-        <section class='item-b'>
-            <article *ngFor='let item of allTimes | slice:amountElementsOfSide:amountElementsOfSide+10
-            ; index as i;'>
-                <p>{{i+1+amountElementsOfSide}}.</p>
-                <p>{{this.stopwatch.timer(item)}}</p>
-                <p><button (click)='delElementScore(i)'>Usuń</button></p>
-            </article>
-            <article>
-                <button *ngIf='allTimes.length > 10' (click)='amountElementsOfSide = amountElementsOfSide - 10'>Poprzednia Strona</button>
-                <button>Wyślij wyniki</button>
-                <button (click)='amountElementsOfSide = amountElementsOfSide + 10'>Następna Strona</button>
-            </article>
-        </section>
-    </div>
-    
-</main>
+
+<h1 *ngIf='!showTimes'>NO RESULTS!</h1>
+
+<div *ngIf='showTimes' class="container">
+    <section class='item-a'>
+        <table>
+            <tr>
+                <td>Best: </td>
+                <td style='color:green'>{{bestScore()}}</td>
+            </tr>
+            <tr>
+                <td>Worst: </td>
+                <td style='color:red'>{{worstScore()}}</td>
+            </tr>
+            <tr>
+                <td>Avg: </td>
+                <td>{{avgScore()}}</td>
+            </tr>
+            <tr>
+                <td>Avg12: </td>
+                <td>{{avg12Score()}}</td>
+            </tr>
+        </table>
+    </section>
+    <section class='item-b'>
+        <article *ngFor='let item of allTimes | slice:amountElementsOfSide:amountElementsOfSide+10
+        ; index as i;'>
+            <p>{{i+1+amountElementsOfSide}}.</p>
+            <p>{{this.stopwatch.timer(item)}}</p>
+            <p><button (click)='delElementScore(i)'>Usuń</button></p>
+        </article>
+        <article>
+            <button *ngIf='allTimes.length > 10' (click)='amountElementsOfSide = amountElementsOfSide - 10'>Poprzednia Strona</button>
+            <button>Wyślij wyniki</button>
+            <button *ngIf='allTimes.length > 10' (click)='amountElementsOfSide = amountElementsOfSide + 10'>Następna Strona</button>
+        </article>
+    </section>
+</div>
+

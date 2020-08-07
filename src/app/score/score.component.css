@@ -1,22 +1,14 @@
-main {
-    margin: 2% 10%;
-}
-main h1 {
+h1 {
     text-align: center;
 }
 div.container {
     display: grid;
-    grid-template-columns: 5px 300px auto 5px;
-    grid-template-rows: auto;
+    grid-template-columns: 300px auto;
+    grid-template-rows: 200px auto;
+    margin: 2% 10%;
 }
-section.item-a {
-    grid-column: 2;
-    grid-row: auto;
-}
-section.item-b {
-    grid-column: 3;
-    grid-row: auto;
-}
+
+
 article {
     border-top: 1px solid black;
     display: flex;
@@ -37,11 +29,34 @@ button {
     cursor: pointer;
     align-self: center;
 }
-section.item-a article {
-    border: 0;
-    font-size: 1em;
+
+
+section.item-a {
+    grid-column: 1;
+    grid-row: 1;
+    position: relative;
 }
-section.item-b article {
-    margin: 0 10%;
+section.item-a::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    bottom: -30px;
+    width: 220px;
+    height: 200px;
+    background-color: yellow;
+    z-index: -1;
 }
+section.item-a table {
+    width: 100%;
+    text-align: center;
+}
+section.item-a td {
+    padding: 10px;
+}
+
+section.item-b {
+    grid-column: 2;
+    grid-row: 1 / 2;
+}
+
 
