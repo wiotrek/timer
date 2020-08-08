@@ -1,0 +1,15 @@
+.login-score {
+    margin: 2% 0;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: auto;
+}
+.form-group {
+    margin: 1%;
+    grid-column: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    margin: .5rem;
+}
