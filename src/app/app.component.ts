@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   leftTitle = 'Times';
   middleTitle = 'Go!';
-  rightTitle = 'Login in';
+  rightTitle = 'Log-in';
 }

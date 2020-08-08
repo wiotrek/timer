@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Stopwatch } from './stopwatch';
 import { ServiceService } from '../service.service';
 
@@ -7,14 +7,19 @@ import { ServiceService } from '../service.service';
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.css']
 })
-export class TimerComponent {
-  constructor(private ts: ServiceService) {
-    console.log(this.ts.allTimes);
-  }
+
+export class TimerComponent implements OnInit{
+  constructor(
+    private ts: ServiceService,
+    ) {}
   public time = '00 : 00 : 00';
   private running = false;
   private stopwatch = new Stopwatch();
   private interval: any;
+
+  ngOnInit(): void {
+    document.querySelector('input').autofocus = true;
+  }
 
   onClick(): void {
     if (!this.running) {
@@ -31,5 +36,4 @@ export class TimerComponent {
       this.running = false;
     }
   }
-
 }

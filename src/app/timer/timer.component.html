@@ -3,6 +3,7 @@
         <h1>{{time}}</h1>
     </section>
     <section>
-        <button (click)='onClick()'>Nacisnij</button>
+        <input class='timer-input' type='button' value='GO!' (keyup)='onClick()'
+        autofocus />
     </section>
 </main>
