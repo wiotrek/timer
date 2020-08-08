@@ -5,6 +5,8 @@ h1 {
     div.score-container {
         margin: 2% 5%;
     }
+
+
     .score-section.item-a {
         position: relative;
     }
@@ -24,6 +26,8 @@ h1 {
     .score-table tr {
         padding: 2% 0;
     }
+
+
     .score-section.item-b {
         margin-top: 4%;
     }
@@ -56,65 +60,58 @@ h1 {
         padding: 2%;
     }
 }
-/* @media(min-width:1000px) {
-    div.container {
+@media(min-width:1000px) {
+
+    div.score-container {
         display: grid;
         grid-template-columns: 300px auto;
         grid-template-rows: 200px auto;
         margin: 2% 10%;
     }
-    
-    
-    article {
-        border-top: 1px solid black;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        font-size: 0.8em;
-    }
-    article:first-child {
-        border-top: 1px solid white;
-    }
-    article:last-child {
-        border-top: 1px solid white;
-    }
-    article button {
-        margin: 5% 0;
-    }
-    button {
-        cursor: pointer;
-        align-self: center;
-    }
-    
-    
-    section.item-a {
+
+
+    .score-section.item-a {
         grid-column: 1;
         grid-row: 1;
-        position: relative;
     }
-    section.item-a::before {
-        content: '';
-        position: absolute;
-        left: -30px;
-        bottom: -30px;
-        width: 220px;
-        height: 200px;
-        background-color: yellow;
-        z-index: -1;
+    .score-section.item-a::before {
+        width: 50%;
+        height: 50%;
     }
-    section.item-a table {
+    .score-table {
         width: 100%;
         text-align: center;
     }
-    section.item-a td {
-        padding: 10px;
-    }
-    
-    section.item-b {
+
+
+    .score-section.item-b {
         grid-column: 2;
         grid-row: 1 / 2;
+        margin: 0 10%;
     }
-} */
 
+    .score-article.item-a {
+        justify-content: space-evenly;
+        border-top: 0;
+        font-size: 1em;
+    }
+    .score-article.item-a:hover {
+        background-color: yellow;
+    }
 
-
+    .score-article.item-a button.common-button{
+        border: 2px solid black;
+        padding: 5px;
+    }
+    .score-article.item-a button.common-button:hover{
+        background-color: white;
+        padding: 10px;
+    }
+    article.score-article.item-b{
+        margin: 3% 0;
+    }
+    .score-article.item-b button.common-button {
+        padding: 5px;
+        width: 100px;
+    }
+}
