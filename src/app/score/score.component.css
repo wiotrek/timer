@@ -76,7 +76,7 @@ h1 {
     }
     .score-section.item-a::before {
         width: 50%;
-        height: 50%;
+        height: 60%;
     }
     .score-table {
         width: 100%;

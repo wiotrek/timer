@@ -49,4 +49,9 @@ export class ScoreComponent {
     score = score / sortTimes.length;
     return this.stopwatch.timer(score);
   }
+  amountScore(): string {
+    const sortTimes = this.allTimes.slice();
+    const score = sortTimes.length.toString();
+    return score;
+  }
 }
