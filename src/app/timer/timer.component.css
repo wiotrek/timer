@@ -2,10 +2,24 @@ section {
     display: flex;
     justify-content: center;
 }
-h1, button {
+h1 {
     font-size: 3em;
 }
-button {
-    padding: 1%;
-    border-radius: 15px;
+h2 {
+    font-size: 1.5em;
+}
+.stopped {
+    color: yellow;
+    animation: blinker 1s linear infinite;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+@media(min-width: 500px){
+    h1 {
+        font-size: 4em;
+    }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Stopwatch } from './stopwatch';
 import { ServiceService } from '../service.service';
 
@@ -8,17 +8,20 @@ import { ServiceService } from '../service.service';
   styleUrls: ['./timer.component.css']
 })
 
-export class TimerComponent implements OnInit{
+export class TimerComponent {
   constructor(
     private ts: ServiceService,
     ) {}
   public time = '00 : 00 : 00';
-  private running = false;
+  public running = false;
   private stopwatch = new Stopwatch();
   private interval: any;
+  public START = 'PRESS KEY';
 
-  ngOnInit(): void {
-    document.querySelector('input').autofocus = true;
+  @HostListener('window:keydown', ['$event'])
+  @HostListener('click', ['$event.target'])
+  handleKeyDown(event: KeyboardEvent): void {
+    this.onClick();
   }
 
   onClick(): void {
@@ -29,11 +32,13 @@ export class TimerComponent implements OnInit{
           this.time = this.stopwatch.display();
         }, 10);
       this.running = true;
+      this.START = 'STOP';
     } else {
       clearInterval(this.interval);
       this.time = this.stopwatch.stop();
       this.ts.allTimes.unshift(this.stopwatch.elapsedTime);
       this.running = false;
+      this.START = 'PRESS KEY';
     }
   }
 }

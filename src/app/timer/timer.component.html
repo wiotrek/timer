@@ -3,7 +3,7 @@
         <h1>{{time}}</h1>
     </section>
     <section>
-        <input class='timer-input' type='button' value='GO!' (keyup)='onClick()'
-        autofocus />
+        <h2 [ngClass]="{'stopped': running}"
+        >{{START}}</h2>
     </section>
 </main>
