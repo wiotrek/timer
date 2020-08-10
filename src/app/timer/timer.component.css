@@ -3,6 +3,7 @@ section {
     justify-content: center;
 }
 h1 {
+  margin: 5% 0;
     font-size: 3em;
 }
 h2 {

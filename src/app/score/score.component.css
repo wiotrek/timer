@@ -1,7 +1,9 @@
-h1 {
-    text-align: center;
-}
 @media(min-width:0){
+    h1 {
+        text-align: center;
+        margin: 5% 0;
+    }
+
     div.score-container {
         margin: 2% 5%;
     }
@@ -34,6 +36,7 @@ h1 {
     .score-article {
         display: flex;
         align-items: center;
+        padding: 2% 0;
     }
     .score-article.item-a {
         justify-content: space-between;
