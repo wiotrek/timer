@@ -18,6 +18,7 @@ export class ServiceService {
   protected httpHeaders = new HttpHeaders(
     {Authorization: `Token ${this.token}`}
   );
+  public localhost = 'http://localhost:4200/';
 
 
   loginUser(userData: string): Observable <any> {

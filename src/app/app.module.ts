@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { TimerComponent } from './timer/timer.component';
 import { ScoreComponent } from './score/score.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TimerComponent,
     ScoreComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

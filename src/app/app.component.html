@@ -1,9 +1,10 @@
 <div>
   <nav class='app-nav'>
-    <a class='app-a' routerLinkActive="active" routerLink='score'>{{leftTitle}}</a>
+    <a class='app-a' routerLinkActive="active" routerLink='score'>Times</a>
     <a class='app-a' routerLinkActive="active" routerLink='' 
-    [routerLinkActiveOptions]="{exact: true}">{{middleTitle}}</a>
-    <a class='app-a' routerLinkActive="active" routerLink='login'>{{rightTitle}}</a>
+    [routerLinkActiveOptions]="{exact: true}">Go!</a>
+    <a *ngIf="!isLogInAppComponent" class='app-a' routerLinkActive="active" routerLink="login">Log-in</a>
+    <a *ngIf="isLogInAppComponent" class='app-a' routerLinkActive="active" routerLink="profile">Profile</a>
   </nav>
   <router-outlet></router-outlet>
 
