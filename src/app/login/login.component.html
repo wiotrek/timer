@@ -1,21 +1,26 @@
 <div class="login-container">
     <h1 class='login-h1'>Login and go!
     </h1>
-    <form class='form-login' [formGroup]="reactiveForm" (ngSubmit)="onSubmit()" >
+    <form class='form-login' [formGroup]="reactiveForm" (ngSubmit)="onLogin()" >
         <p class='login-p'>
-          <label>Login<br/>
-          <input type="text" id="firstname" name="firstname" formControlName="firstname" required></label>
+          <label>
+          <input type="text" id="firstname" name="firstname" formControlName="username" required
+          placeholder="username"></label>
         </p>
      
         <p class='login-p'>
-          <label>Password<br/>
-          <input type="password" id="password" name="password" formControlName="password" required></label>
+          <label>
+          <input type="password" id="password" name="password" formControlName="password" required
+          placeholder="password"></label>
         </p>
      
         <p class='login-p'>
             <button class='common-button' type='submit' [disabled]="!reactiveForm.valid">Submit</button>
         </p>
      
+        <p class='login-p error'>
+          {{errorP}}
+        </p>
       </form>
 </div>
 
