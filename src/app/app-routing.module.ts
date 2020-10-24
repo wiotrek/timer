@@ -9,7 +9,7 @@ const routes: Routes = [
   {path: '', component: TimerComponent},
   {path: 'score', component: ScoreComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'profile', component: ProfileComponent},
+  {path: 'profile/:id', component: ProfileComponent},
 ];
 
 @NgModule({
