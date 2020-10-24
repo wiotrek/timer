@@ -1,4 +1,29 @@
-@media(min-width: 0){
+@media(min-width: 0) {
+    .container {
+        margin-top: 5%;
+        display: flex;
+        justify-content: space-around;
+    }
+
+}
+@media(min-width: 1000px) {
+    .container {
+        margin-top: 2%;
+    }
+
+    form {
+        border: 1px solid rgb(230, 227, 227);
+        padding: 5%;
+        border-radius: 15px;
+    }
+    
+    .div_button {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+/* @media(min-width: 0){
     .login-container {
         display: flex;
         flex-direction: column;
@@ -25,16 +50,13 @@
         flex-direction: row;
         align-items: flex-start;
     }
-}
-@media(min-width: 1000px) {
-    .login-container {
+} */
+/* @media(min-width: 1000px) { */
+    /* .login-container {
         padding: 5% 0;
         margin: 3% 20%;
         justify-content: space-evenly;
         align-items: baseline;
-        border: 3px solid black;
-        border-radius: 15px;
-        background-color: yellow;
     }
     h1.login-h1 {
         margin: 0;
@@ -45,5 +67,5 @@
     }
     button.common-button:hover {
         padding: 2% 15px;
-    }
-}
+    } */
+/* } */
