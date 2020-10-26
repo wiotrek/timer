@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ServiceService } from '../service.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,29 +10,31 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   constructor(
     private userService: ServiceService,
-    private router: Router
+
     ) {
       console.log(this.userService.isLogIn);
     }
-    reactiveForm: any;
-    public errorP: string;
+    public logging: any;
+    public wrong: string;
 
     ngOnInit(): void {
-      this.reactiveForm = new FormGroup({
-        username: new FormControl('', [Validators.required]),
-        password: new FormControl('')
+      this.logging = new FormGroup({
+        username: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(32)]),
+        password: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(128)])
       });
     }
-    onLogin(): void {
-      this.userService.loginUser(this.reactiveForm.value).subscribe(
+    public LoggingPost(): void {
+      console.log(this.logging.value);
+      
+      this.userService.LoggingService(this.logging.value).subscribe(
         response => {
-          localStorage.setItem('userToken', response.token);
+          localStorage.setItem('token', response.token);
           this.userService.isLogIn = this.userService.isExistToken();
           window.location.href = this.userService.localhost;
         },
         error => {
           console.log(error);
-          this.errorP = 'Invalid login or password';
+          this.wrong = 'Invalid login or password';
         }
       );
 
