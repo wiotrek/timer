@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     }
     public LoggingPost(): void {
       console.log(this.logging.value);
-      
+
       this.userService.LoggingService(this.logging.value).subscribe(
         response => {
           localStorage.setItem('token', response.token);
