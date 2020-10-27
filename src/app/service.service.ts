@@ -26,6 +26,14 @@ export class ServiceService {
     {Authorization: `Token ${this.token}`}
   );
 
+  public isExistToken(): boolean {
+    if (localStorage.getItem('token') === null){
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   public loggingService(request: string): Observable <any> {
     return this.http.post(`${this.backend}/auth/`, request);
   }
@@ -35,12 +43,9 @@ export class ServiceService {
     {headers: this.httpHeaders});
   }
 
-  public isExistToken(): boolean {
-    if (localStorage.getItem('token') === null){
-      return false;
-    } else {
-      return true;
-    }
+  public scorePost(goal): Observable <any> {
+    return this.http.post(`${this.backend}/scores/`,
+    goal, {headers: this.httpHeaders});
   }
 
 }

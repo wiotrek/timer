@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
@@ -14,13 +14,14 @@ export class ProfileComponent implements OnInit {
     private userService: ServiceService,
     private location: Location,
     private route: ActivatedRoute
-  ) { }
+  ) {
+    this.getUsername();
+   }
 
   public username: string;
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.getUsername();
   }
 
   private getUsername = () => {
@@ -28,7 +29,7 @@ export class ProfileComponent implements OnInit {
       response => {
         this.username = response.username;
       },
-      error => {
+      err => {
         this.username = 'noname';
       }
     );
