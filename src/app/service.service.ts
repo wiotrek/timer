@@ -20,16 +20,23 @@ export class ServiceService {
   public localhost = 'http://localhost:4200/';
 
   public token = localStorage.getItem('token');
+  public userId = localStorage.getItem('id_user');
+
   protected httpHeaders = new HttpHeaders(
     {Authorization: `Token ${this.token}`}
   );
 
-  public LoggingService(request: string): Observable <any> {
+  public loggingService(request: string): Observable <any> {
     return this.http.post(`${this.backend}/auth/`, request);
   }
 
+  public getUsername(): Observable <any> {
+    return this.http.get(`${this.backend}/users/${this.userId}/`,
+    {headers: this.httpHeaders});
+  }
+
   public isExistToken(): boolean {
-    if (localStorage.getItem('token') === null ){
+    if (localStorage.getItem('token') === null){
       return false;
     } else {
       return true;

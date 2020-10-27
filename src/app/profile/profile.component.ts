@@ -15,7 +15,30 @@ export class ProfileComponent implements OnInit {
     private location: Location,
     private route: ActivatedRoute
   ) { }
+
+  public username: string;
+
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
+    this.getUsername();
   }
+
+  private getUsername = () => {
+    this.userService.getUsername().subscribe(
+      response => {
+        this.username = response.username;
+      },
+      error => {
+        this.username = 'noname';
+      }
+    );
+  }
+
+  public logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('id_user');
+    localStorage.clear();
+    window.location.href = this.userService.localhost;
+  }
+
 }

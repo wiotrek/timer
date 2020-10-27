@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ServiceService } from '../service.service';
 
@@ -11,9 +11,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private userService: ServiceService,
 
-    ) {
-      console.log(this.userService.isLogIn);
-    }
+    ) {}
     public logging: any;
     public wrong: string;
 
@@ -24,19 +22,16 @@ export class LoginComponent implements OnInit {
       });
     }
     public LoggingPost(): void {
-      console.log(this.logging.value);
-
-      this.userService.LoggingService(this.logging.value).subscribe(
+      this.userService.loggingService(this.logging.value).subscribe(
         response => {
           localStorage.setItem('token', response.token);
+          localStorage.setItem('id_user', response.id);
           this.userService.isLogIn = this.userService.isExistToken();
           window.location.href = this.userService.localhost;
         },
         error => {
-          console.log(error);
           this.wrong = 'Invalid login or password';
         }
       );
-
     }
 }
