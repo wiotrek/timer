@@ -37,7 +37,7 @@ export class TimerComponent {
       clearInterval(this.interval);
       this.time = this.stopwatch.stop();
       this.ts.allTimes.unshift(this.stopwatch.elapsedTime);
-      const current = this.stopwatch.timeFloor(this.stopwatch.elapsedTime);
+      const current = this.stopwatch.elapsedTime;
       this.scorePost(current);
       this.running = false;
       this.START = 'PRESS KEY';
