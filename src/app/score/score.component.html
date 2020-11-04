@@ -1,8 +1,9 @@
 
-<h1 *ngIf='!showTimes'>NO RESULTS!</h1>
+<!-- <h1 *ngIf='!showTimes'>NO RESULTS!</h1> -->
+<!-- <div *ngIf='showTimes' class="score-container"> -->
+<div class="score-container">
 
-<div *ngIf='showTimes' class="score-container">
-    <section class='score-section item-a'>
+    <!-- <section class='score-section item-a'>
         <table class='score-table'>
             <tr>
                 <td>Best: </td>
@@ -25,22 +26,24 @@
                 <td>{{amountScore()}}</td>
             </tr>
         </table>
-    </section>
+    </section> -->
+
     <section class='score-section item-b'>
+        
         <article  class='score-article item-a'
-            *ngFor='let item of scoresAll.name | slice:amountElementsOfSide:amountElementsOfSide+10
+            *ngFor='let item of scoresAll | slice:amountElementsOfSide:amountElementsOfSide+5
             ; index as i;'>
-            <p>{{item}}</p>
-            <!-- <p>{{i+1+amountElementsOfSide}}.</p> -->
-            <!-- <p>{{this.stopwatch.timer(item)}}</p> -->
-            <button class='common-button'(click)='delElementScore(i)'>Remove</button>
+            <p>{{i+1+amountElementsOfSide}}.</p>
+            <p>{{this.stopwatch.timer(item.name)}}</p>
+            <button class='remove-button'(click)='delElementScore(item.id)'>Remove</button>
         </article>
+
         <article class='score-article item-b'>
             <button class='common-button'
-                *ngIf='allTimes.length > 10' (click)='amountElementsOfSide = amountElementsOfSide - 10'>Previous</button>
-            <button class='common-button'>Save</button>
-            <button class='common-button' *ngIf='allTimes.length > 10' 
-                (click)='amountElementsOfSide = amountElementsOfSide + 10'>Next</button>
+                *ngIf='amountElementsOfSide > 4' (click)='amountElementsOfSide = amountElementsOfSide - 5'>
+                Previous</button>
+            <button class='common-button' *ngIf='scoresLength > amountElementsOfSide + 5' 
+                (click)='amountElementsOfSide = amountElementsOfSide + 5'>Next</button>
         </article>
     </section>
 </div>

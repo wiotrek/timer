@@ -18,16 +18,23 @@ export class ScoreComponent {
   public amountElementsOfSide = 0;
 
   public scoresAll: number;
+  public scoresLength: number;
 
+
+  // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit(): void {
     this.scoresGet();
   }
 
-  delElementScore = (element: number) => {
-    if (this.ts.allTimes.length > 1) {
-      this.ts.allTimes.splice(element, 1);
-    }
+  delElementScore = (id: number) => {
+    this.ts.scoreDel(id).subscribe(
+      response => {
+        this.scoresGet();
+      },
+      error => {}
+    );
   }
+
   bestScore(): string {
     // copy values array allTimes without references
     let sortTimes = this.allTimes.slice();
@@ -64,13 +71,14 @@ export class ScoreComponent {
   scoresGet = () => {
     this.ts.scoreGet().subscribe(
       response => {
-        this.scoresAll = response.name;
+        this.scoresAll = response;
+        this.scoresLength = response.length;
         console.log(response);
+        console.log(response.length);
       },
       err => {
         console.log(err);
       }
     );
   }
-
 }
