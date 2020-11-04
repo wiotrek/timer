@@ -1,3 +1,5 @@
+import { tokenName } from '@angular/compiler';
+
 export class Stopwatch {
     private startTime: number;
     public elapsedTime: number;
@@ -12,11 +14,16 @@ export class Stopwatch {
 
     display(): any {
         this.elapsedTime = performance.now() - this.startTime;
+        this.elapsedTime = this.timeFloor(this.elapsedTime);
         return this.timer(this.elapsedTime);
     }
 
-    timer(time: number): string {
+    timeFloor(time: number): number {
         time = Math.floor(time / 10);
+        return time;
+    }
+
+    timer(time: number): string {
         const timerArr = [0, 0, 0];
 
         timerArr[2] = time;
@@ -32,14 +39,11 @@ export class Stopwatch {
              timerArr[1] -= 60;
             }
         }
-        return `\
-            ${this.add0(timerArr[0], 2)} :\
-            ${this.add0(timerArr[1], 2)} :\
-            ${this.add0(timerArr[2], 2)}`;
+        return `${this.add0(timerArr[0], 2)}:${this.add0(timerArr[1], 2)}:${this.add0(timerArr[2], 2)}`;
     }
 
     // adding 0 previous time
-    add0(value: number, count: number): string {
+    private add0(value: number, count: number): string {
         let result = value.toString();
         for (; result.length < count; --count) {
             result = '0' + result;

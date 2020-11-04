@@ -1,3 +1,21 @@
-.card {
-    margin: 4em 0;
+@media(min-width: 0) {
+    .container {
+        margin-top: 5%;
+        display: flex;
+        justify-content: space-around;
+    }
+}
+@media(min-width: 500px) {
+    .container {
+        margin-top: 2%;
+    }
+
+    .card {
+        padding: 1%;
+    }
+    
+    .div_button {
+        display: flex;
+        justify-content: space-around;
+    }
 }
