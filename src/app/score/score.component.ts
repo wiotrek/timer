@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { Stopwatch } from '../timer/stopwatch';
 @Component({
@@ -16,6 +16,12 @@ export class ScoreComponent {
   private allTimes = this.ts.allTimes;
   public showTimes = this.allTimes.length === 0 ? false : true;
   public amountElementsOfSide = 0;
+
+  public scoresAll: number;
+
+  ngOnInit(): void {
+    this.scoresGet();
+  }
 
   delElementScore = (element: number) => {
     if (this.ts.allTimes.length > 1) {
@@ -54,4 +60,17 @@ export class ScoreComponent {
     const score = sortTimes.length.toString();
     return score;
   }
+
+  scoresGet = () => {
+    this.ts.scoreGet().subscribe(
+      response => {
+        this.scoresAll = response.name;
+        console.log(response);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
 }

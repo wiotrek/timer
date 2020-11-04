@@ -28,10 +28,11 @@
     </section>
     <section class='score-section item-b'>
         <article  class='score-article item-a'
-            *ngFor='let item of allTimes | slice:amountElementsOfSide:amountElementsOfSide+10
+            *ngFor='let item of scoresAll.name | slice:amountElementsOfSide:amountElementsOfSide+10
             ; index as i;'>
-            <p>{{i+1+amountElementsOfSide}}.</p>
-            <p>{{this.stopwatch.timer(item)}}</p>
+            <p>{{item}}</p>
+            <!-- <p>{{i+1+amountElementsOfSide}}.</p> -->
+            <!-- <p>{{this.stopwatch.timer(item)}}</p> -->
             <button class='common-button'(click)='delElementScore(i)'>Remove</button>
         </article>
         <article class='score-article item-b'>

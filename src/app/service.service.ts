@@ -48,4 +48,9 @@ export class ServiceService {
     goal, {headers: this.httpHeaders});
   }
 
+  public scoreGet(): Observable <any> {
+    return this.http.get(`${this.backend}/scores/`,
+    {headers: this.httpHeaders});
+  }
+
 }
