@@ -26,7 +26,7 @@ export class ScoreComponent {
     this.scoresWorst();
   }
 
-  delElementScore = (id: number) => {
+  public delElementScore = (id: number) => {
     this.ts.scoreDel(id).subscribe(
       response => {
         this.scoresGet();
@@ -53,7 +53,7 @@ export class ScoreComponent {
   // }
 
 
-  public scoresGet = () => {
+  private scoresGet = () => {
     this.ts.scoreGet().subscribe(
       response => {
         this.scoresAll = response;
@@ -63,7 +63,7 @@ export class ScoreComponent {
     );
   }
 
-  public scoresBest = () => {
+  private scoresBest = () => {
     this.ts.scoreBest().subscribe(
       response => {
         this.scoreBest = this.stopwatch.timer(response[0].name);
@@ -74,7 +74,7 @@ export class ScoreComponent {
     );
   }
 
-  public scoresWorst = () => {
+  private scoresWorst = () => {
     this.ts.scoreWorst().subscribe(
       response => {
         this.scoreWorst = this.stopwatch.timer(response[0].name);

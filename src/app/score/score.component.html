@@ -1,5 +1,5 @@
-<h1 *ngIf='scoresLength === 0'>NO RESULTS!</h1>
-<div *ngIf='scoresLength !== 0' class="score-container">
+<h1 *ngIf='scoresLength === undefined'>NO RESULTS!</h1>
+<div *ngIf='scoresLength !== undefined' class="score-container">
 
     <section class='score-section item-a'>
         <table class='score-table'>

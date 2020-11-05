@@ -9,12 +9,9 @@ export class ServiceService {
 
   constructor(
     protected http: HttpClient,
-  ) {
-    console.log(this.isLogIn);
-  }
+  ) {}
 
   public isLogIn: boolean = this.isExistToken();
-  public allTimes = [];
 
   protected backend = 'http://127.0.0.1:8000';
   public localhost = 'http://localhost:4200/';
