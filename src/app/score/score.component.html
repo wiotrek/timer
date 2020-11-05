@@ -1,32 +1,30 @@
+<h1 *ngIf='scoresLength === 0'>NO RESULTS!</h1>
+<div *ngIf='scoresLength !== 0' class="score-container">
 
-<!-- <h1 *ngIf='!showTimes'>NO RESULTS!</h1> -->
-<!-- <div *ngIf='showTimes' class="score-container"> -->
-<div class="score-container">
-
-    <!-- <section class='score-section item-a'>
+    <section class='score-section item-a'>
         <table class='score-table'>
             <tr>
                 <td>Best: </td>
-                <td style='color:green'>{{bestScore()}}</td>
+                <td style='color:green'>{{scoreBest}}</td>
             </tr>
             <tr>
                 <td>Worst: </td>
-                <td style='color:red'>{{worstScore()}}</td>
+                <td style='color:red'>{{scoreWorst}}</td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>Avg: </td>
                 <td>{{avgScore()}}</td>
             </tr>
             <tr>
                 <td>Avg12: </td>
                 <td>{{avg12Score()}}</td>
-            </tr>
+            </tr> -->
             <tr>
                 <td>Amount: </td>
-                <td>{{amountScore()}}</td>
+                <td>{{scoresLength}}</td>
             </tr>
         </table>
-    </section> -->
+    </section>
 
     <section class='score-section item-b'>
         

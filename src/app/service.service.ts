@@ -58,4 +58,13 @@ export class ServiceService {
     {headers: this.httpHeaders});
   }
 
+  public scoreBest(): Observable <any> {
+    return this.http.get(`${this.backend}/best/`,
+    {headers: this.httpHeaders});
+  }
+
+  public scoreWorst(): Observable <any> {
+    return this.http.get(`${this.backend}/worst/`,
+    {headers: this.httpHeaders});
+  }
 }
