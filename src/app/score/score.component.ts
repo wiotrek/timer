@@ -21,9 +21,12 @@ export class ScoreComponent {
 
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit(): void {
-    this.scoresGet();
-    this.scoresBest();
-    this.scoresWorst();
+
+    if (this.ts.isLogIn === true){
+      this.scoresGet();
+      this.scoresBest();
+      this.scoresWorst();
+    }
   }
 
   public delElementScore = (id: number) => {
@@ -37,27 +40,13 @@ export class ScoreComponent {
     );
   }
 
-  // avgScore(): string {
-  //   const sortTimes = this.allTimes.slice();
-  //   const reducer = (accumulator: number, currentValue: number) => accumulator + currentValue;
-  //   let score = sortTimes.reduce(reducer);
-  //   score = score / sortTimes.length;
-  //   return this.stopwatch.timer(score);
-  // }
-  // avg12Score(): string {
-  //   const sortTimes = this.allTimes.slice(0, 12);
-  //   const reducer = (accumulator: number, currentValue: number) => accumulator + currentValue;
-  //   let score = sortTimes.reduce(reducer);
-  //   score = score / sortTimes.length;
-  //   return this.stopwatch.timer(score);
-  // }
-
-
   private scoresGet = () => {
     this.ts.scoreGet().subscribe(
       response => {
-        this.scoresAll = response;
-        this.scoresLength = response.length;
+        if (response.length > 0){
+          this.scoresAll = response;
+          this.scoresLength = response.length;
+        }
       },
       err => {}
     );
@@ -66,7 +55,9 @@ export class ScoreComponent {
   private scoresBest = () => {
     this.ts.scoreBest().subscribe(
       response => {
-        this.scoreBest = this.stopwatch.timer(response[0].name);
+        if (response.length > 0){
+          this.scoreBest = this.stopwatch.timer(response[0].name);
+        }
       },
       err => {
         this.scoreBest = '-';
@@ -77,7 +68,9 @@ export class ScoreComponent {
   private scoresWorst = () => {
     this.ts.scoreWorst().subscribe(
       response => {
-        this.scoreWorst = this.stopwatch.timer(response[0].name);
+        if (response.length) {
+          this.scoreWorst = this.stopwatch.timer(response[0].name);
+        }
       },
       err => {
         this.scoreWorst = '-';

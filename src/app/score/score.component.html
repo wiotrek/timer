@@ -1,5 +1,4 @@
-<h1 *ngIf='scoresLength === undefined'>NO RESULTS!</h1>
-<div *ngIf='scoresLength !== undefined' class="score-container">
+<div *ngIf='scoresLength !== undefined && scoresLength > 0; else noresult' class="score-container">
 
     <section class='score-section item-a'>
         <table class='score-table'>
@@ -11,14 +10,6 @@
                 <td>Worst: </td>
                 <td style='color:red'>{{scoreWorst}}</td>
             </tr>
-            <!-- <tr>
-                <td>Avg: </td>
-                <td>{{avgScore()}}</td>
-            </tr>
-            <tr>
-                <td>Avg12: </td>
-                <td>{{avg12Score()}}</td>
-            </tr> -->
             <tr>
                 <td>Amount: </td>
                 <td>{{scoresLength}}</td>
@@ -46,3 +37,4 @@
     </section>
 </div>
 
+<ng-template #noresult><h1 #noresult>NO RESULTS!</h1></ng-template>

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
-import { Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
 import { Stopwatch } from '../timer/stopwatch';
 
 @Component({
@@ -51,7 +49,11 @@ export class ProfileComponent implements OnInit {
   private scoresGet = () => {
     this.userService.scoreGet().subscribe(
       response => {
-        this.yourAmountOfTimes = response.length;
+        if (response.length > 0){
+          this.yourAmountOfTimes = response.length;
+        }else {
+          this.yourAmountOfTimes = 0;
+        }
       },
       err => {
         this.yourAmountOfTimes = 0;
@@ -62,7 +64,11 @@ export class ProfileComponent implements OnInit {
   private scoresBest = () => {
     this.userService.scoreBest().subscribe(
       response => {
-        this.yourBestTime = this.stopwatch.timer(response[0].name);
+        if (response.length > 0){
+          this.yourBestTime = this.stopwatch.timer(response[0].name);
+        }else {
+          this.yourBestTime = '00:00:00';
+        }
       },
       err => {
         this.yourBestTime = '00:00:00';
@@ -73,7 +79,11 @@ export class ProfileComponent implements OnInit {
   private scoresWorst = () => {
     this.userService.scoreWorst().subscribe(
       response => {
-        this.yourWorstTime = this.stopwatch.timer(response[0].name);
+        if (response.length > 0){
+          this.yourWorstTime = this.stopwatch.timer(response[0].name);
+        }else {
+          this.yourWorstTime = '00:00:00';
+        }
       },
       err => {
         this.yourWorstTime = '00:00:00';
