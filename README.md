@@ -26,7 +26,7 @@ https://wiotrek.github.io/timer/
 </ul>
 
 # Backend
-link to repository -> "https://github.com/wiotrek/timer_backend_"
+link to repository -> https://github.com/wiotrek/timer_backend_/
 
 # Screens
 <img src="https://user-images.githubusercontent.com/57100427/98401720-6f3db480-2066-11eb-9b33-131379d5b7f5.png">
