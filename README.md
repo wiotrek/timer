@@ -1,5 +1,5 @@
 # DEMO
-Note: You have been patiet, because it may take some time until server starts. <br />
+Note: You have been patiet, because it may take some time until heroku server will wake up. <br />
 <b>login = guest</b>, and <b>password = speedcuber</b> <br />
 https://wiotrek.github.io/timer/
 
