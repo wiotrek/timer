@@ -1,10 +1,18 @@
-# Timer
-<img src="https://user-images.githubusercontent.com/57100427/98400776-f1c57480-2064-11eb-8fe1-c68883567cbb.png">
-<img src="https://user-images.githubusercontent.com/57100427/98400777-f25e0b00-2064-11eb-8080-a0785e790958.png">
+# DEMO
+Note: You have been patiet, because may some time until server starts. <br />
+Example login = guest, and password = speedcuber <br />
+https://wiotrek.github.io/timer/
+
+# Backend
+link to repository -> https://github.com/wiotrek/timer_backend_
+
+# Screens
+<img src="https://user-images.githubusercontent.com/57100427/98401720-6f3db480-2066-11eb-9b33-131379d5b7f5.png">
+<img src="https://user-images.githubusercontent.com/57100427/98401721-6fd64b00-2066-11eb-9ac0-cf4d7ed54038.png">
 <table>
   <tr>
-    <td valign="top"><img src="https://user-images.githubusercontent.com/57100427/98400779-f25e0b00-2064-11eb-9c64-1d3cf473d2b8.png"></td>
-    <td valign="top"><img src="https://user-images.githubusercontent.com/57100427/98400780-f25e0b00-2064-11eb-94e3-1d6addd31171.png"></td>
-    <td valign="top"><img src="https://user-images.githubusercontent.com/57100427/98400781-f2f6a180-2064-11eb-9137-3bebae77588d.png"></td>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/57100427/98401722-6fd64b00-2066-11eb-9f9b-9682945b63f7.png"></td>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/57100427/98401723-706ee180-2066-11eb-9b7e-acd2007d9bcc.png"></td>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/57100427/98401724-706ee180-2066-11eb-886b-19f912e77949.png"></td>
   </tr>
  </table>
