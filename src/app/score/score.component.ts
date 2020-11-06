@@ -10,65 +10,70 @@ export class ScoreComponent {
   private stopwatch = new Stopwatch();
   constructor(
     private ts: ServiceService,
-  ) {
-    console.log(this.ts.allTimes);
-  }
-  private allTimes = this.ts.allTimes;
-  public showTimes = this.allTimes.length === 0 ? false : true;
+  ) {}
   public amountElementsOfSide = 0;
 
   public scoresAll: number;
+  public scoresLength: number;
 
+  public scoreBest: string;
+  public scoreWorst: string;
+
+  // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit(): void {
-    this.scoresGet();
-  }
 
-  delElementScore = (element: number) => {
-    if (this.ts.allTimes.length > 1) {
-      this.ts.allTimes.splice(element, 1);
+    if (this.ts.isLogIn === true){
+      this.scoresGet();
+      this.scoresBest();
+      this.scoresWorst();
     }
   }
-  bestScore(): string {
-    // copy values array allTimes without references
-    let sortTimes = this.allTimes.slice();
-    sortTimes  = sortTimes.sort((a, b) => a - b);
-    const best = Number(sortTimes[0]);
-    return this.stopwatch.timer(best);
-  }
-  worstScore(): string {
-    let sortTimes = this.allTimes.slice();
-    sortTimes  = sortTimes.sort((a, b) => a - b);
-    const worst = Number(sortTimes[sortTimes.length - 1]);
-    return this.stopwatch.timer(worst);
-  }
-  avgScore(): string {
-    const sortTimes = this.allTimes.slice();
-    const reducer = (accumulator: number, currentValue: number) => accumulator + currentValue;
-    let score = sortTimes.reduce(reducer);
-    score = score / sortTimes.length;
-    return this.stopwatch.timer(score);
-  }
-  avg12Score(): string {
-    const sortTimes = this.allTimes.slice(0, 12);
-    const reducer = (accumulator: number, currentValue: number) => accumulator + currentValue;
-    let score = sortTimes.reduce(reducer);
-    score = score / sortTimes.length;
-    return this.stopwatch.timer(score);
-  }
-  amountScore(): string {
-    const sortTimes = this.allTimes.slice();
-    const score = sortTimes.length.toString();
-    return score;
+
+  public delElementScore = (id: number) => {
+    this.ts.scoreDel(id).subscribe(
+      response => {
+        this.scoresGet();
+        this.scoresBest();
+        this.scoresWorst();
+      },
+      error => {}
+    );
   }
 
-  scoresGet = () => {
+  private scoresGet = () => {
     this.ts.scoreGet().subscribe(
       response => {
-        this.scoresAll = response.name;
-        console.log(response);
+        if (response.length > 0){
+          this.scoresAll = response;
+          this.scoresLength = response.length;
+        }
+      },
+      err => {}
+    );
+  }
+
+  private scoresBest = () => {
+    this.ts.scoreBest().subscribe(
+      response => {
+        if (response.length > 0){
+          this.scoreBest = this.stopwatch.timer(response[0].name);
+        }
       },
       err => {
-        console.log(err);
+        this.scoreBest = '-';
+      }
+    );
+  }
+
+  private scoresWorst = () => {
+    this.ts.scoreWorst().subscribe(
+      response => {
+        if (response.length) {
+          this.scoreWorst = this.stopwatch.timer(response[0].name);
+        }
+      },
+      err => {
+        this.scoreWorst = '-';
       }
     );
   }

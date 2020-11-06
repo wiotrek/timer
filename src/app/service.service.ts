@@ -9,12 +9,9 @@ export class ServiceService {
 
   constructor(
     protected http: HttpClient,
-  ) {
-    console.log(this.isLogIn);
-  }
+  ) {}
 
   public isLogIn: boolean = this.isExistToken();
-  public allTimes = [];
 
   protected backend = 'http://127.0.0.1:8000';
   public localhost = 'http://localhost:4200/';
@@ -48,9 +45,23 @@ export class ServiceService {
     goal, {headers: this.httpHeaders});
   }
 
+  public scoreDel(id: number): Observable <any> {
+    return this.http.delete(`${this.backend}/scores/${id}/`,
+    {headers: this.httpHeaders});
+  }
+
   public scoreGet(): Observable <any> {
     return this.http.get(`${this.backend}/scores/`,
     {headers: this.httpHeaders});
   }
 
+  public scoreBest(): Observable <any> {
+    return this.http.get(`${this.backend}/best/`,
+    {headers: this.httpHeaders});
+  }
+
+  public scoreWorst(): Observable <any> {
+    return this.http.get(`${this.backend}/worst/`,
+    {headers: this.httpHeaders});
+  }
 }

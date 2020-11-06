@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
-import { Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { Stopwatch } from '../timer/stopwatch';
 
 @Component({
   selector: 'app-profile',
@@ -10,18 +9,23 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
+  private stopwatch = new Stopwatch();
   constructor(
     private userService: ServiceService,
-    private location: Location,
-    private route: ActivatedRoute
   ) {
     this.getUsername();
    }
 
   public username: string;
+  public yourAmountOfTimes: number;
+  public yourBestTime: string;
+  public yourWorstTime: string;
+
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+    this.scoresGet();
+    this.scoresBest();
+    this.scoresWorst();
   }
 
   private getUsername = () => {
@@ -42,4 +46,48 @@ export class ProfileComponent implements OnInit {
     window.location.href = this.userService.localhost;
   }
 
+  private scoresGet = () => {
+    this.userService.scoreGet().subscribe(
+      response => {
+        if (response.length > 0){
+          this.yourAmountOfTimes = response.length;
+        }else {
+          this.yourAmountOfTimes = 0;
+        }
+      },
+      err => {
+        this.yourAmountOfTimes = 0;
+      }
+    );
+  }
+
+  private scoresBest = () => {
+    this.userService.scoreBest().subscribe(
+      response => {
+        if (response.length > 0){
+          this.yourBestTime = this.stopwatch.timer(response[0].name);
+        }else {
+          this.yourBestTime = '00:00:00';
+        }
+      },
+      err => {
+        this.yourBestTime = '00:00:00';
+      }
+    );
+  }
+
+  private scoresWorst = () => {
+    this.userService.scoreWorst().subscribe(
+      response => {
+        if (response.length > 0){
+          this.yourWorstTime = this.stopwatch.timer(response[0].name);
+        }else {
+          this.yourWorstTime = '00:00:00';
+        }
+      },
+      err => {
+        this.yourWorstTime = '00:00:00';
+      }
+    );
+  }
 }
