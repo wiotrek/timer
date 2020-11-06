@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,8 @@ export class ServiceService {
 
   public isLogIn: boolean = this.isExistToken();
 
-  protected backend = 'http://127.0.0.1:8000';
-  public localhost = 'http://localhost:4200/';
+  protected backend =  environment.apiUrl;
+  public localhost = environment.localUrl;
 
   public token = localStorage.getItem('token');
   public userId = localStorage.getItem('id_user');
