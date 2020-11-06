@@ -1,7 +1,29 @@
 # DEMO
 Note: You have been patiet, because may some time until server starts. <br />
-Example login = guest, and password = speedcuber <br />
+<b>login = guest</b>, and <b>password = speedcuber</b> <br />
 https://wiotrek.github.io/timer/
+
+# Technologies
+<ul>
+  <li>Angular 10</li>
+  <li>Typescript</li>
+  <li>Github pages</li>
+  <li>Python 3.9.0</li>
+  <li>Django</li>
+  <li>Rest framework</li>
+  <li>CORS</li>
+  <li>Heroku</li>
+</ul>
+
+
+# Features
+<ul>
+  <li>CRUD</li>
+  <li>RWD</li>
+  <li>Stopwatch class in timer components</li>
+  <li>Login and logout</li>
+  <li>Diffrents results for any users</li>
+</ul>
 
 # Backend
 link to repository -> https://github.com/wiotrek/timer_backend_
